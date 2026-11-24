@@ -7,7 +7,7 @@ Solution: [`q05_solution.sql`](q05_solution.sql)
 CREATE INDEX idx_allocations_active_room ON allocations (room_id) WHERE status = 'ACTIVE';
 ```
 
-**Justification:** (write 2-3 sentences here in your own words)
+**Justification:** Only ACTIVE allocations take up beds, and the capacity check counts ACTIVE rows for a room. I made the index partial (WHERE status = 'ACTIVE') so ENDED history, which keeps growing, is left out. That keeps the index small and makes counting a room's active students quick.
 
 ## (f) EXPLAIN
 ```

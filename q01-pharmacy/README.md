@@ -7,7 +7,7 @@ Solution: [`q01_solution.sql`](q01_solution.sql)
 CREATE INDEX idx_sales_medicine_sold_on ON sales (medicine_id, sold_on);
 ```
 
-**Justification:** (write 2-3 sentences here in your own words)
+**Justification:** The query looks for one medicine within a range of dates. I put medicine_id first because it is matched exactly, and sold_on second because it is a range. This way the database goes straight to that medicine's sales and reads only the dates needed, instead of scanning the whole sales table.
 
 ## (f) EXPLAIN
 ```

@@ -7,7 +7,7 @@ Solution: [`q06_solution.sql`](q06_solution.sql)
 CREATE INDEX idx_payroll_pay_month ON payroll (pay_month);
 ```
 
-**Justification:** (write 2-3 sentences here in your own words)
+**Justification:** The existing unique index starts with employee_id, so it cannot be used efficiently to find all employees for one month. A separate index on pay_month supports the monthly report directly. It is not a duplicate of the unique index because its first column is different.
 
 ## (f) EXPLAIN
 ```

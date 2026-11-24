@@ -7,7 +7,7 @@ Solution: [`q08_solution.sql`](q08_solution.sql)
 CREATE INDEX idx_trips_vehicle_trip_on ON trips (vehicle_id, trip_on);
 ```
 
-**Justification:** (write 2-3 sentences here in your own words)
+**Justification:** The search is for one vehicle's trips within a date range. vehicle_id comes first because it is matched exactly and trip_on second because it is a range. All of one vehicle's trips are then together in date order, so the range is read in one go.
 
 ## (f) EXPLAIN
 ```

@@ -7,7 +7,7 @@ Solution: [`q03_solution.sql`](q03_solution.sql)
 CREATE INDEX idx_loans_unreturned_by_book ON loans (book_id) WHERE returned_on IS NULL;
 ```
 
-**Justification:** (write 2-3 sentences here in your own words)
+**Justification:** The search only needs unreturned loans for one book. I made it a partial index with WHERE returned_on IS NULL, so returned loans are not stored in it. This keeps the index small and fast, because most old loans are already returned.
 
 ## (f) EXPLAIN
 ```

@@ -7,7 +7,7 @@ Solution: [`q04_solution.sql`](q04_solution.sql)
 CREATE INDEX idx_appointments_day_doctor ON appointments (appointment_day, doctor_id);
 ```
 
-**Justification:** (write 2-3 sentences here in your own words)
+**Justification:** Appointments are searched by day and doctor, for example one doctor's schedule on one date. An index on appointment_day and doctor_id lets the database go directly to those rows instead of reading every appointment. It is not unique because a doctor can have up to four appointments in a day.
 
 ## (f) EXPLAIN
 ```

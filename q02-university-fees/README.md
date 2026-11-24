@@ -7,7 +7,7 @@ Solution: [`q02_solution.sql`](q02_solution.sql)
 CREATE INDEX idx_payments_student_paid_on ON payments (student_id, paid_on) INCLUDE (amount);
 ```
 
-**Justification:** (write 2-3 sentences here in your own words)
+**Justification:** Payments are searched by one student and a date range. The index has student_id first (exact match) and paid_on second (range), so the database jumps to that student's payments and reads only the dates in range. I added amount with INCLUDE so totals can be read from the index without opening the table.
 
 ## (f) EXPLAIN
 ```
